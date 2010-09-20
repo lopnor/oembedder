@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>test</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.oembed.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                    $.fn.oembed.registerProvider(
+                        'nicovideo', 'www.nicovideo.jp', 'http://localhost:5000/oembed');
+                    $.fn.oembed.registerProvider(
+                        'pixiv', 'www.pixiv.net', 'http://localhost:5000/oembed');
+                $("div.oembed").find("a").oembed(null,{embedMethod: "append"});
+            });
+        </script>
+    </html>
+    <body>
+        <div class="oembed">
+            <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=13159552">http://www.pixiv.net/member_illust.php?mode=medium&illust_id=13159552</a>
+            <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=13237103">http://www.pixiv.net/member_illust.php?mode=medium&illust_id=13237103</a>
+            <a href="http://www.pixiv.net/member_illust.php?mode=manga&illust_id=13067237#page2">http://www.pixiv.net/member_illust.php?mode=manga&illust_id=13067237#page2</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>test</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.oembed.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                    $.fn.oembed.registerProvider(
+                        'nicovideo', 'www.nicovideo.jp', 'http://localhost:5000/oembed');
+                    $.fn.oembed.registerProvider(
+                        'pixiv', 'www.pixiv.net', 'http://localhost:5000/oembed');
+                $("div.oembed").find("a").oembed(null,{embedMethod: "append"});
+            });
+        </script>
+    </html>
+    <body>
+        <div class="oembed">
+            <a href="http://www.nicovideo.jp/watch/sm11289281">http://www.nicovideo.jp/watch/sm11289281</a>
+            <a href="http://www.nicovideo.jp/watch/sm693626">http://www.nicovideo.jp/watch/sm693626</a>
+            <a href="http://www.nicovideo.jp/watch/sm10844888">http://www.nicovideo.jp/watch/sm10844888</a>
+        </div>
+        <script type="text/javascript">document.write('hoge');</script>
+    </body>
+</html>

@@ -3,6 +3,18 @@ package OEmbedder;
 use strict;
 use warnings;
 our $VERSION = '0.01';
+use Tatsumaki::Application;
+use OEmbedder::Handlers;
+use OEmbedder::JSON;
+
+sub webapp {
+    my ($class, $config) = @_;
+    $config ||= {};
+
+    my $app = Tatsumaki::Application->new(OEmbedder::Handlers->all);
+    $app->add_service(json => OEmbedder::JSON->new);
+    $app->psgi_app;
+}
 
 1;
 __END__
