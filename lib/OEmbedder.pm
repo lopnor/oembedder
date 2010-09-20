@@ -4,14 +4,20 @@ use strict;
 use warnings;
 our $VERSION = '0.01';
 use Tatsumaki::Application;
-use OEmbedder::Handlers;
 use OEmbedder::JSON;
+use OEmbedder::Handler::OEmbed;
+use OEmbedder::Handler::Root;
 
 sub webapp {
     my ($class, $config) = @_;
     $config ||= {};
 
-    my $app = Tatsumaki::Application->new(OEmbedder::Handlers->all);
+    my $app = Tatsumaki::Application->new(
+        [
+            '^/oembed$' => 'OEmbedder::Handler::OEmbed',
+            '^/$' => 'OEmbedder::Handler::Root',
+        ]
+    );
     $app->add_service(json => OEmbedder::JSON->new);
     $app->psgi_app;
 }
